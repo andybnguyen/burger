@@ -15,6 +15,10 @@ router.get('/burgers', (req, res) => {
 });
 
 router.post('/burgers/create', (req,res) => {
-    res.send(req.body);
-})
+    orm.insertOne(req.body.data)
+        .then(results => {
+            res.send(results);
+        })
+        .catch(err => console.error(err));
+});
 module.exports = router;

@@ -5,10 +5,12 @@ const orm = {
 
 orm.insertOne = (name) => {
     const query = "insert into burgers (burger_name, devoured) values (?, 0)";
-    return connection.query(query, [name], (error, results, fields) => {
-        if (error) throw error;
-        return;
-    })
+    return new Promise((resolve, reject) => {
+        connection.query(query, [name], (error, results, fields) => {
+            if (error) throw error;
+            resolve(`${name} added`);;
+        });
+    });
 };
 
 orm.selectAll = () => {
