@@ -28,9 +28,8 @@
                             <h4>{{this.ID}}. {{this.burger_name}}</h4>
                         </div>
                         <div class="col-2">
-                            <button type="submit" class="btn btn-primary">Devour it!</button>
+                            <button type="submit" class="btn btn-primary devourBtn" id={{this.ID}}>Devour it!</button>
                         </div>
-                                
                     </div>
                 {{/unless}} 
             {{/each}}
@@ -38,7 +37,15 @@
         <div class="col-6 text-center">
             {{#each data}} 
                 {{#if this.devoured}}
-                    <input class="form-control" type="text" placeholder="{{this.ID}} . {{this.burger_name}}" readonly> 
+                    <div class="row m-3">
+                        <div class="col-1"></div>
+                        <div class="col-4 text-left">
+                            <h4>{{this.ID}}. {{this.burger_name}}</h4>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" class="btn btn-secondary" disabled>Devoured!</button>
+                        </div>
+                    </div>
                 {{/if}} 
             {{/each}}
         </div>

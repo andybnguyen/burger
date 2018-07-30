@@ -21,4 +21,13 @@ router.post('/burgers/create', (req,res) => {
         })
         .catch(err => console.error(err));
 });
+
+router.put('/burgers/update/:id', (req,res) => {
+    const burgerID = req.params.id;
+    orm.updateOne(burgerID, true)
+        .then(results => {
+            res.send(results);
+        })
+        .catch(err => console.error(err));
+});
 module.exports = router;

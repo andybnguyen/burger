@@ -28,7 +28,7 @@ orm.updateOne = (id, devoured) => {
     return new Promise((resolve, reject) => {
         connection.query(query, [devoured, id], (error, results, fields) => {
             if (error) throw error;
-            resolve(results);
+            resolve(`Burger ID: ${id} devoured`);
         });
     });
 }

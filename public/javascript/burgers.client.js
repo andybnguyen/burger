@@ -1,4 +1,4 @@
-$('#addBurgerBtn').on('click', () => {
+$('#addBurgerBtn').on('click', function() {
     event.preventDefault();
     const newBurger = $('#newBurger').val().trim();
     console.log(`From Client: ${newBurger}`);
@@ -8,3 +8,11 @@ $('#addBurgerBtn').on('click', () => {
         location.reload();
     });
 });
+
+$('.devourBtn').on('click', function () {
+    const burgerID = $(this).attr('id');
+    axios.put(`burgers/update/${burgerID}`, {data: burgerID})
+    .then(res => {
+        location.reload();
+    });
+})
