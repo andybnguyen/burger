@@ -1,0 +1,46 @@
+<div class="col-12 text-center">
+    <h1>Taste Me!</h1>
+</div>
+<div class="col-12 text-center">
+    <img src="https://media.giphy.com/media/IOjBHQRLHOjC0/giphy.gif" width="100px">
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-5"></div>
+        <div class="col-2 text-center enter_section">
+            <form action="/burgers/create" method="POST" class="m-3">
+                <input type="text" class="form-control" name="burger_name" value="" id="enter_text">
+                <button type="submit" class="btn btn-warning m-3" id="text-enter-button">Submit</button>
+            </form>
+            <h4>Enter A Burger Name</h4>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 text-center">
+            {{#each data}} 
+                {{#unless this.devoured}}
+                    <div class="row m-3">
+                        <div class="col-4"></div>
+                        <div class="col-4 text-left">
+                            <h4>{{this.ID}}. {{this.burger_name}}</h4>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" class="btn btn-primary">Devour it!</button>
+                        </div>
+                                
+                    </div>
+                {{/unless}} 
+            {{/each}}
+        </div>
+        <div class="col-6 text-center">
+            {{#each data}} 
+                {{#if this.devoured}}
+                    <input class="form-control" type="text" placeholder="{{this.ID}} . {{this.burger_name}}" readonly> 
+                {{/if}} 
+            {{/each}}
+        </div>
+    </div>
+</div>
