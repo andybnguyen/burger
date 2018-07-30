@@ -14,4 +14,7 @@ router.get('/burgers', (req, res) => {
         });
 });
 
+router.post('/burgers/create', (req,res) => {
+    res.send(req.body);
+})
 module.exports = router;
